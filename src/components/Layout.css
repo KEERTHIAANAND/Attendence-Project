@@ -1,0 +1,15 @@
+.layout-container {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+}
+
+.layout-logo {
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.layout-content {
+  margin-top: 20px;
+}

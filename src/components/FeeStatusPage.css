@@ -1,7 +1,7 @@
 .fee-status-container {
   text-align: center;
   padding: 20px;
-  background-color: #F3DCBB;
+  background: linear-gradient(to right, #F3DCBB, #deb883);
   min-height: 100vh;
 }
 
@@ -93,6 +93,23 @@
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.fee-summary-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.fee-summary-button:hover {
+  background-color: #0056b3;
 }
 
 @media (max-width: 768px) {

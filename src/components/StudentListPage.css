@@ -1,7 +1,7 @@
 .student-list-container {
   text-align: center;
   padding: 20px;
-  background-color: #F3DCBB;
+  background: linear-gradient(to right, #F3DCBB, #deb883);
   min-height: 100vh;
 }
 
@@ -153,6 +153,36 @@ h3 {
 }
 
 .student-list-box {
+}
+
+.remove-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
+}
+
+.filter-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #45a049;
 }
 
 @media (max-width: 768px) {

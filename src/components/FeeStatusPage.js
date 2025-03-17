@@ -5,7 +5,7 @@ import profilePic from '../assets/profile.png'; // Adjust the path as necessary
 
 const FeeStatusPage = () => {
   const location = useLocation();
-  const studentName = location.state?.studentName || 'Unknown'; // Ensure the student name is retrieved correctly
+  const studentName = location.state?.studentName || 'Unknown';
 
   const [feeStatus, setFeeStatus] = useState([
     { month: 'January', status: 'pending' },
@@ -28,11 +28,17 @@ const FeeStatusPage = () => {
     setFeeStatus(updatedFeeStatus);
   };
 
+  const handleFeeSummary = () => {
+    const paidCount = feeStatus.filter(item => item.status === 'paid').length;
+    const pendingCount = feeStatus.filter(item => item.status === 'pending' || item.status === 'not paid').length;
+    alert(`Fee Summary:\nPaid: ${paidCount}\nPending: ${pendingCount}`);
+  };
+
   return (
     <div className="fee-status-container">
       <div className="profile-section">
         <img src={profilePic} alt="Profile" className="profile-pic" />
-        <span className="profile-name">{studentName}</span> {/* Display the student's name */}
+        <span className="profile-name">{studentName}</span>
       </div>
       <div className="fee-status-header">
         <span>Month</span>
@@ -65,6 +71,9 @@ const FeeStatusPage = () => {
           </div>
         ))}
       </div>
+      <button className="fee-summary-button" onClick={handleFeeSummary}>
+        Fee Summary
+      </button>
     </div>
   );
 };

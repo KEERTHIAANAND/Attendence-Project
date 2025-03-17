@@ -23,6 +23,10 @@ const BatchPage = () => {
     batch.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleNavigateToStudentList = (batchName) => {
+    navigate('/student-list', { state: { batchName } });
+  };
+
   return (
     <div className="cities-container">
       <input
@@ -37,7 +41,7 @@ const BatchPage = () => {
           <button 
             key={index} 
             className="city-button" 
-            onClick={() => navigate('/student-list')}
+            onClick={() => handleNavigateToStudentList(batch)}
           >
             {batch}
           </button>

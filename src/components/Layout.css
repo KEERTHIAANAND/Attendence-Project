@@ -1,7 +1,7 @@
 .layout-container {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  background: linear-gradient(to right, #F3DCBB, #deb883);
   min-height: 100vh;
 }
 

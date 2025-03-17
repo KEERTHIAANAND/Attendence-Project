@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color:#F3DCBB; 
+  background: linear-gradient(to right, #F3DCBB, #deb883); 
 }
 
 .login-box {

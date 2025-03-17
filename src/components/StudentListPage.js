@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './StudentListPage.css';
-import searchIcon from '../assets/search.png'; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const StudentListPage = () => {
   const [students, setStudents] = useState([
@@ -12,6 +11,8 @@ const StudentListPage = () => {
     { name: 'Kavin', status: 'none' },
     { name: 'Kumar', status: 'none' },
   ]);
+  const location = useLocation();
+  const batchName = location.state?.batchName || 'Unknown Batch';
   const [newStudent, setNewStudent] = useState('');
   const [showInput, setShowInput] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -37,6 +38,16 @@ const StudentListPage = () => {
     navigate('/fee-status', { state: { studentName } });
   };
 
+  const handleSortAlphabetically = () => {
+    const sortedStudents = [...students].sort((a, b) => a.name.localeCompare(b.name));
+    setStudents(sortedStudents);
+  };
+
+  const handleRemoveStudent = (index) => {
+    const updatedStudents = students.filter((_, i) => i !== index);
+    setStudents(updatedStudents);
+  };
+
   const filteredStudents = students.filter(student =>
     student.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -44,7 +55,7 @@ const StudentListPage = () => {
   return (
     <div className="student-list-container">
       <h2>ATTENDANCE</h2>
-      <h3>BATCH 1</h3>
+      <h3>{batchName}</h3>
       <div className="search-container">
         <input
           type="text"
@@ -53,7 +64,9 @@ const StudentListPage = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <img src={searchIcon} alt="Search" className="search-icon" />
+        <button className="filter-button" onClick={handleSortAlphabetically}>
+          Sort A-Z
+        </button>
       </div>
       <div className="student-list">
         {filteredStudents.map((student, index) => (
@@ -86,6 +99,12 @@ const StudentListPage = () => {
                 </>
               )}
             </div>
+            <button 
+              className="remove-button" 
+              onClick={() => handleRemoveStudent(index)}
+            >
+              Remove
+            </button>
           </div>
         ))}
       </div>

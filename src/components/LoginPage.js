@@ -19,14 +19,6 @@ const LoginPage = () => {
         return;
     }
     
-    if (rememberMe) {
-      localStorage.setItem('rememberMe', 'true');
-      localStorage.setItem('email', email);
-    } else {
-      localStorage.removeItem('rememberMe');
-      localStorage.removeItem('email');
-    }
-    
     console.log("Login button clicked");
     navigate('/cities');
   };
